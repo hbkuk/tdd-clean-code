@@ -2,6 +2,7 @@ package baseball;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import java.util.Arrays;
 
@@ -9,6 +10,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BallTest {
+    
+    @Test
+    @DisplayName("Ball의 Value가 1이상 9이하의 숫자가 아닐때 발생하는 Exception을 확인")
+    void ball_1이상_9이하가_아닐때_exception() {
+        assertThatIllegalArgumentException().isThrownBy(() -> {Ball ball = new Ball(1, 10);});
+        
+    }
 
     @Test
     @DisplayName("위치와 값을 확인하여 NOTTING을 반환")
