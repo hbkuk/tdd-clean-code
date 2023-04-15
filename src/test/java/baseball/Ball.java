@@ -3,15 +3,24 @@ package baseball;
 import java.util.Objects;
 
 public class Ball {
-
+    private static final int MAX_VALUE = 1;
+    private static final int MAX_NUMBER = 9;
+    
     private int position;
     private int value;
 
     public Ball(int position, int value) {
         this.position = position;
-        this.value = value;
+        this.value = BallNumber(value);
     }
     
+    private int BallNumber(int value) {
+        if( MAX_VALUE > value || MAX_NUMBER < value ) {
+            throw new IllegalArgumentException();
+        }
+        return value;
+    }
+
     public BallStatus play(Ball userBall) {
         if( this.equals(userBall)) {
             return BallStatus.STRIKE;
