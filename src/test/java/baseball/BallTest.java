@@ -60,4 +60,49 @@ class BallTest {
         
         assertThat(answerBalls.play(userBall)).isEqualTo(BallStatus.STRIKE);
     }
+    
+    @Test
+    @DisplayName("answerBalls과 userBalls를 비교한 후 Notting")
+    void balls_vs_balls_notting() {
+        Balls answerBalls = new Balls(Arrays.asList(1,2,3));
+        
+        answerBalls.playBall(Arrays.asList(4,5,6));
+        
+        assertThat(answerBalls.getResultBall().getStrike()).isEqualTo(0);
+        assertThat(answerBalls.getResultBall().getBall()).isEqualTo(0);
+    }
+    
+    @Test
+    @DisplayName("answerBalls과 userBalls를 비교한 후 3Ball ")
+    void balls_vs_balls_3ball() {
+        Balls answerBalls = new Balls(Arrays.asList(1,2,3));
+        
+        answerBalls.playBall(Arrays.asList(3,1,2));
+        
+        assertThat(answerBalls.getResultBall().getStrike()).isEqualTo(0);
+        assertThat(answerBalls.getResultBall().getBall()).isEqualTo(3);
+    }
+    
+    @Test
+    @DisplayName("answerBalls과 userBalls를 비교한 후 3Strike ")
+    void balls_vs_balls_3strike() {
+        Balls answerBalls = new Balls(Arrays.asList(1,2,3));
+        
+        answerBalls.playBall(Arrays.asList(1,2,3));
+        
+        assertThat(answerBalls.getResultBall().getStrike()).isEqualTo(3);
+        assertThat(answerBalls.getResultBall().getBall()).isEqualTo(0);
+    }
+    
+    @Test
+    @DisplayName("answerBalls과 userBalls를 비교한 후 1Strike 2Ball ")
+    void balls_vs_balls_1strike_2ball() {
+        Balls answerBalls = new Balls(Arrays.asList(1,2,3));
+        
+        answerBalls.playBall(Arrays.asList(1,3,2));
+        
+        assertThat(answerBalls.getResultBall().getStrike()).isEqualTo(1);
+        assertThat(answerBalls.getResultBall().getBall()).isEqualTo(2);
+    }
+    
 }
