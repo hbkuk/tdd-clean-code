@@ -100,6 +100,7 @@ class BallTest {
         
         assertThat(answerBalls.getResultBall().getStrike()).isEqualTo(3);
         assertThat(answerBalls.getResultBall().getBall()).isEqualTo(0);
+        assertThat(answerBalls.getResultBall().isGameEnd()).isTrue();
     }
     
     @Test
