@@ -31,16 +31,7 @@ public class Balls {
     public void playBall(List<Integer> values) {
         List<Ball> userBalls = integersToBalls(values);
         for( Ball userBall : userBalls ) {
-            saveResult(this.play(userBall));
-        }
-    }
-    private void saveResult(BallStatus status) {
-        if( status == BallStatus.STRIKE ) {
-            result.setStrike(result.getStrike() + 1);
-        }
-        
-        if( status == BallStatus.BALL ) {
-            result.setBall(result.getBall() + 1);
+            result.saveResult(this.play(userBall));
         }
     }
     public List<Ball> getAnswerBalls() {

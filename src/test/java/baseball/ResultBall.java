@@ -23,4 +23,12 @@ public class ResultBall {
         this.ball = ball;
     }
 
+    public void saveResult(BallStatus status) {
+        if( status.isStrike() ) {
+            this.strike += 1;
+        }
+        if( status.isBall() ) {
+            this.ball += 1;
+        }
+    }
 }
