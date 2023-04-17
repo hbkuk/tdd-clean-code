@@ -23,7 +23,7 @@ public class Balls {
     public BallStatus play(Ball userBall) {
         return answerBalls.stream()
                     .map(ball -> ball.play(userBall))
-                    .filter(status -> status != BallStatus.NOTTING)
+                    .filter(status -> status.isNotNotting())
                     .findFirst()
                     .orElse(BallStatus.NOTTING);
     }
