@@ -31,4 +31,7 @@ public class ResultBall {
             this.ball += 1;
         }
     }
+    public boolean isGameEnd() {
+        return this.strike == 3;
+    }
 }
