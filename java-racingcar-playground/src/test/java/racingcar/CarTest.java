@@ -62,6 +62,14 @@ class CarTest {
         assertThatExceptionOfType(RuntimeException.class)
         .isThrownBy(() -> {Cars cars = new Cars(GenerateUtils.toList("pobi,crong,honux,test1,test2,test3"));} )
         .withMessageMatching("입력 가능한 자동차의 최대 수는 5입니다.");
-        
+    }
+    
+    @Test
+    @DisplayName("Car의 move 메서드를 호출된 횟수만큼, 멤버변수 Position이 증가하는지 확인")
+    void car_move_메서드_호출과_position_확인() {
+        String carName = "pobi";
+        Car car = new Car(carName);
+        car.move();
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 }
