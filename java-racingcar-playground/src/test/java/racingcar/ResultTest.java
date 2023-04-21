@@ -58,5 +58,27 @@ class ResultTest {
         assertThat(winningCars.get(0).getName()).isEqualTo("crong");
         assertThat(winningCars.get(0).getPosition()).isEqualTo(3);
     }
-
+    
+    @Test
+    void Car_포지션_개수만큼_하이픈_생성_확인() {
+        Cars newCars = new Cars(Arrays.asList("pobi","crong","honi"));
+        Car pobi = newCars.getCars().get(0);
+        Car crong = newCars.getCars().get(1);
+        Car honi = newCars.getCars().get(2);
+        
+        pobi.move(4);
+        
+        crong.move(4);
+        crong.move(5);
+        
+        honi.move(4);
+        honi.move(5);
+        honi.move(6);
+        
+        List<String> hyphens =
+                Result.getHyphenPerPosition(newCars);
+        assertEquals("-", hyphens.get(0));
+        assertEquals("--", hyphens.get(1));
+        assertEquals("---", hyphens.get(2));
+    }
 }
