@@ -14,5 +14,7 @@ public class Car {
     private boolean isInValidNameLength(String name) {
         return name.length() > MAX_NAME_LENGTH;
     }
-
+    public String getName() {
+        return name;
+    }
 }
