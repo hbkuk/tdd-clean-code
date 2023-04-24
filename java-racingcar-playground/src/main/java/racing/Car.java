@@ -38,6 +38,10 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+    
+    public String getName() {
+        return name;
+    }
 
     @Override
     public int hashCode() {
