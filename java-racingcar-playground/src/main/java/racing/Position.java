@@ -9,7 +9,15 @@ public class Position {
         if( value < 0 ) {
             throw new IllegalArgumentException("position을 음수로 지정할 수 없습니다.");
         }
-        this.position = position;
+        this.position = value;
+    }
+    
+    public Position increase() {
+        return new Position(this.position + 1 );
+    }
+    
+    public int getPosition() {
+        return position;
     }
 
     @Override
@@ -28,10 +36,4 @@ public class Position {
         Position other = (Position) obj;
         return position == other.position;
     }
-
-    public Position increase() {
-        return new Position(this.position + 1 );
-    }
-    
-    
 }
