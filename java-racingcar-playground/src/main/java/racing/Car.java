@@ -4,8 +4,7 @@ import java.util.Objects;
 
 public class Car {
     private static final int MIN_FORWARD_VALUE = 4;
-    private static final int MAX_NAME_LENGTH_VALUE = 5;
-    private String name;
+    private Name name;
     private Position position;
 
     public Car(String name) {
@@ -13,17 +12,8 @@ public class Car {
     }
 
     public Car(String name, int position) {
-        if( StringUtils.isBlanck(name) ) 
-            throw new IllegalArgumentException("1글자 이상을 입력해야 합니다.");
-        
-        if( isInvalidNameLegnth(name) )
-            throw new IllegalArgumentException("5글자를 초과할 수 없습니다.");
-        this.name = name;
+        this.name = new Name(name);
         this.position = new Position(position);
-    }
-
-    private boolean isInvalidNameLegnth(String name) {
-        return name.length() > MAX_NAME_LENGTH_VALUE;
     }
 
     public void move(int number) {
@@ -40,7 +30,7 @@ public class Car {
     }
     
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     @Override
@@ -57,6 +47,7 @@ public class Car {
         if (getClass() != obj.getClass())
             return false;
         Car other = (Car) obj;
-        return Objects.equals(name, other.name) && position == other.position;
+        return Objects.equals(name, other.name) && Objects.equals(position, other.position);
     }
+
 }
