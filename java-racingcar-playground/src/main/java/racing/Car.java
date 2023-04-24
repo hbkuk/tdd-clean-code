@@ -6,7 +6,7 @@ public class Car {
     private static final int MIN_FORWARD_VALUE = 4;
     private static final int MAX_NAME_LENGTH_VALUE = 5;
     private String name;
-    private int position;
+    private Position position;
 
     public Car(String name) {
         this(name, 0);
@@ -19,7 +19,7 @@ public class Car {
         if( isInvalidNameLegnth(name) )
             throw new IllegalArgumentException("5글자를 초과할 수 없습니다.");
         this.name = name;
-        this.position = position;
+        this.position = new Position(position);
     }
 
     private boolean isInvalidNameLegnth(String name) {
@@ -28,7 +28,7 @@ public class Car {
 
     public void move(int number) {
         if( isMove(number) )
-            this.position ++;
+            position = position.increase();
     }
 
     private boolean isMove(int number) {
@@ -36,7 +36,7 @@ public class Car {
     }
     
     public int getPosition() {
-        return this.position;
+        return this.position.getPosition();
     }
     
     public String getName() {
