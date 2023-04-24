@@ -25,6 +25,7 @@
     - 지역변수
         - 자동차 목록(List<Car>), 시도횟수(tryNumber)
     - 메서드
-        - move()
-        - try()
+        - List&#60;Car&#62; initCars(String carNames) : 문자열을 입력받아 차의 리스트를 리턴하는 메서드
+        - boolean isGameEnd(): 게임이 종료되었는지 확인하는 메서드
+        - void race() : 1 라운드를 진행하는 메서드
     
