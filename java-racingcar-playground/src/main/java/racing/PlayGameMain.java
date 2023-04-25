@@ -26,8 +26,8 @@ public class PlayGameMain {
             PlayGameUtils.getResultPerRace(cars, builder);
         }
         
-        List<Car> winners = Winners.findWinners(cars);
-        for( Car car : winners ) {
+        Winners winners = new Winners(cars);
+        for( Car car : winners.findWinners() ) {
             builder.append(car.getName()).append(", ");
         }
         

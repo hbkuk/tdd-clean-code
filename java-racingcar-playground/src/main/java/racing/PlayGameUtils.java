@@ -5,7 +5,7 @@ import java.util.List;
 public class PlayGameUtils {
     
     private static String getDashPerPosition(Car car) {
-        return "-".repeat(car.getPosition());
+        return "-".repeat(car.getPosition().getPosition());
     }
     
     public static void getResultPerRace(List<Car> cars, StringBuilder builder) {
