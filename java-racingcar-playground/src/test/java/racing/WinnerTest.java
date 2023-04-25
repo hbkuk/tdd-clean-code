@@ -16,8 +16,8 @@ public class WinnerTest {
                          new Car("crong", 2),
                          new Car("honi", 1));
         
-        List<Car> winners = Winners.findWinners(cars);
-        assertThat(winners)
+        Winners winners = new Winners(cars);
+        assertThat(winners.findWinners())
                 .contains(new Car("pobi", 3))
                 .doesNotContain(new Car("crong", 2), new Car("honi", 1));
     }
@@ -29,8 +29,8 @@ public class WinnerTest {
                          new Car("crong", 2),
                          new Car("honi", 3));
         
-        List<Car> winners = Winners.findWinners(cars);
-        assertThat(winners)
+        Winners winners = new Winners(cars);
+        assertThat(winners.findWinners())
                 .contains(new Car("pobi", 3), new Car("honi", 3))
                 .doesNotContain(new Car("crong", 2) );
     }
