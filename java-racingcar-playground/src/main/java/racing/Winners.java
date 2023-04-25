@@ -14,19 +14,18 @@ public class Winners {
         return findWinners(getMaxPositionValue());
     }
     
-    private List<Car> findWinners(int maxPositionValue) {
+    private List<Car> findWinners(Position maxPositionValue) {
         List<Car> winners = new ArrayList<>();
         for( Car car : cars ) {
-            if( car.getPosition() == maxPositionValue)
+            if( car.isWinner(maxPositionValue) )
                 winners.add(car);
         }
         return winners;
     }
-    private int getMaxPositionValue() {
-        int maxPositionValue = 0;
+    private Position getMaxPositionValue() {
+        Position maxPositionValue = new Position(0);
         for( Car car : cars ) {
-            if( car.getPosition() > maxPositionValue)
-                maxPositionValue = car.getPosition();
+            maxPositionValue = car.getMaxPositionValue(maxPositionValue);
         }
         return maxPositionValue;
     }

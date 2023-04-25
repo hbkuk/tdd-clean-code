@@ -15,6 +15,10 @@ public class Car {
         this.name = new Name(name);
         this.position = new Position(position);
     }
+    
+    public boolean isWinner(Position maxPositionValue) {
+        return position.isSame(maxPositionValue);
+    }
 
     public void move(int number) {
         if( isMove(number) )
@@ -25,12 +29,18 @@ public class Car {
         return number >= MIN_FORWARD_VALUE;
     }
     
-    public int getPosition() {
-        return this.position.getPosition();
+    public Position getPosition() {
+        return this.position;
     }
     
     public String getName() {
         return name.getName();
+    }
+    
+    public Position getMaxPositionValue(Position maxPositionValue) {
+        if( this.position.isBiggerPositionValue(maxPositionValue) )
+            return position;
+        return maxPositionValue;
     }
 
     @Override
@@ -49,5 +59,4 @@ public class Car {
         Car other = (Car) obj;
         return Objects.equals(name, other.name) && Objects.equals(position, other.position);
     }
-
 }

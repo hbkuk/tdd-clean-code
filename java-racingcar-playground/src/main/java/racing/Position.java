@@ -11,6 +11,10 @@ public class Position {
         }
         this.position = value;
     }
+
+    public boolean isSame(Position maxPositionValue) {
+        return this.position == maxPositionValue.position;
+    }
     
     public Position increase() {
         return new Position(this.position + 1 );
@@ -35,5 +39,9 @@ public class Position {
             return false;
         Position other = (Position) obj;
         return position == other.position;
+    }
+
+    public boolean isBiggerPositionValue(Position maxPositionValue) {
+        return this.position > maxPositionValue.position;
     }
 }
