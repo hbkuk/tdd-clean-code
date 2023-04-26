@@ -48,4 +48,19 @@ public class Coordinates {
     public Shape getShape() {
         return this.Shape;
     }
+
+    public double calculateDistance() {
+        double dx = getXDiffValue(coordinates.get(0), coordinates.get(1)); // 첫번째 좌표와의 x 차이
+        double dy = getYDiffValue(coordinates.get(0), coordinates.get(1)); // 첫번째 좌표와의 y 차이
+        return Math.sqrt((dx * dx) + (dy * dy));
+    }
+
+    private int getXDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
+        return secondCoordinate.getX() - firstCoordinate.getX();
+    }
+    
+    private int getYDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
+        return secondCoordinate.getY() - firstCoordinate.getY();
+    }
+
 }
