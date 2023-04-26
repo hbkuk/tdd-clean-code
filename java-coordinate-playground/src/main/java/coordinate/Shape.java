@@ -1,6 +1,6 @@
 package coordinate;
 
-public enum Shape {
-    STRAIGHT;
-
+public abstract class Shape {
+    
+    public abstract double calculate();
 }

@@ -5,10 +5,11 @@ import java.util.List;
 
 public class Coordinates {
     private List<Coordinate> coordinates;
-    private Shape Shape;
-
+    private Shape shape;
+    
     public Coordinates(String line) {
         this.coordinates = initCoordinates(line);
+        this.shape = initShape();
     }
 
     private List<Coordinate> initCoordinates(String line) {
@@ -17,15 +18,24 @@ public class Coordinates {
             String[] values = extractCoordinates(coordinate);
             coordinates.add( new Coordinate(toInt(values[0]), toInt(values[1])) );
         }
-        
-        if(isStraight(coordinates)) {
-            this.Shape = Shape.STRAIGHT;
-        }
-        
         return coordinates;
     }
+    
+    private Shape initShape() {
+        if(isStraight(coordinates)) {
+            return new Straight(coordinates);
+        }
+        if(isRectangle(coordinates)) {
+            return new Rectangle(coordinates);
+        }
+        return null;
+    }
 
-    private boolean isStraight(List<Coordinate> coordinates) {
+    public boolean isRectangle(List<Coordinate> coordinates) {
+        return coordinates.size() == 4;
+    }
+
+    public boolean isStraight(List<Coordinate> coordinates) {
         return coordinates.size() == 2;
     }
 
@@ -46,21 +56,7 @@ public class Coordinates {
     }
 
     public Shape getShape() {
-        return this.Shape;
-    }
-
-    public double calculateDistance() {
-        double dx = getXDiffValue(coordinates.get(0), coordinates.get(1)); // 첫번째 좌표와의 x 차이
-        double dy = getYDiffValue(coordinates.get(0), coordinates.get(1)); // 첫번째 좌표와의 y 차이
-        return Math.sqrt((dx * dx) + (dy * dy));
-    }
-
-    private Double getXDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
-        return secondCoordinate.getX().subtract(firstCoordinate.getX());
+        return shape;
     }
     
-    private Double getYDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
-        return secondCoordinate.getY().subtract(firstCoordinate.getY());
-    }
-
 }
