@@ -12,8 +12,8 @@ class CoordinateTest {
     @Test
     void create() {
         Coordinate coordinate = new Coordinate(1, 2);
-        assertThat(coordinate.getX()).isEqualTo(1);
-        assertThat(coordinate.getY()).isEqualTo(2);;
+        assertThat(coordinate.getX()).isEqualTo(new XCoordinate(1));
+        assertThat(coordinate.getY()).isEqualTo(new YCoordinate(2));;
     }
     
     @ParameterizedTest

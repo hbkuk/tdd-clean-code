@@ -55,12 +55,12 @@ public class Coordinates {
         return Math.sqrt((dx * dx) + (dy * dy));
     }
 
-    private int getXDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
-        return secondCoordinate.getX() - firstCoordinate.getX();
+    private Double getXDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
+        return secondCoordinate.getX().subtract(firstCoordinate.getX());
     }
     
-    private int getYDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
-        return secondCoordinate.getY() - firstCoordinate.getY();
+    private Double getYDiffValue(Coordinate firstCoordinate, Coordinate secondCoordinate) {
+        return secondCoordinate.getY().subtract(firstCoordinate.getY());
     }
 
 }
