@@ -1,6 +1,6 @@
 package rentcar;
 
-public class Sonata extends Car{
+public class Sonata extends AbstractCar{
     private static final String CAR_NAME = "Sonata";
     private int distanceToTravel;
     private static final int DISTANCE_PER_LITER = 10;
