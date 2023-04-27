@@ -1,27 +1,17 @@
 package rentcar;
 
 public class Avante extends AbstractCar {
-    private int distanceToTravel;
-    private static final String CAR_NAME = "Avante";
     private static final int DISTANCE_PER_LITER = 15;
+    private String name;
     
     public Avante(int distanceToTravel) {
-        this.distanceToTravel = distanceToTravel;
+        super( distanceToTravel, DISTANCE_PER_LITER);
+        this.name = "Avante";
     }
 
     @Override
-    int getDistancePerLiter() {
-        return DISTANCE_PER_LITER;
-    }
-
-    @Override
-    int distanceToTravel() {
-        return this.distanceToTravel;
-    }
-
-    @Override
-    String getName() {
-        return CAR_NAME;
+    public String getName() {
+        return name;
     }
 
 }

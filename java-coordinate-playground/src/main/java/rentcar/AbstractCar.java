@@ -1,8 +1,16 @@
 package rentcar;
 
-public abstract class AbstractCar {
+public abstract class AbstractCar implements Car {
+    private double distancePerLiter;
+    private double distance;
     
-    abstract String getName();
+    public AbstractCar(int distance, int distancePerLiter) {
+        this.distance = distance;
+        this.distancePerLiter = distancePerLiter;
+    }
 
-    abstract double getInjectFuelAmount();
+    @Override
+    public double getInjectFuelAmount() {
+        return distance / distancePerLiter;
+    }
 }

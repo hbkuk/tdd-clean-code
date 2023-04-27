@@ -4,24 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany {
-    private static List<AbstractCar> touringCars = new ArrayList<>();
-
+    private static final String NEWLINE = System.getProperty("line.separator");
+    private static final String COLON_WITH_SPACE = " : ";
+    private static final String LITER = "리터";
+    private static RentCompany rentCompany = null; 
+    private List<Car> touringCars = new ArrayList<>();
+    
     public static RentCompany create() {
-        return new RentCompany();
+        if( rentCompany == null ) {
+            rentCompany = new RentCompany();
+        }
+        return rentCompany;
     }
 
-    public void addCar(AbstractCar car) {
+    public void addCar(Car car) {
         touringCars.add(car);
     }
 
     public String generateReport() {
         StringBuilder report = new StringBuilder();
         
-        for( AbstractCar car : touringCars ) {
+        for( Car car : touringCars ) {
             report.append(car.getName())
-                    .append(" : ")
-                    .append((int) car.getInjectFuelAmount()).append("리터")
-                    .append(System.lineSeparator());
+                    .append(COLON_WITH_SPACE)
+                    .append((int) car.getInjectFuelAmount()).append(LITER)
+                    .append(NEWLINE);
         }
         return report.toString();
     }
