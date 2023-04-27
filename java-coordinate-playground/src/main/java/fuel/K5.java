@@ -1,27 +1,16 @@
 package fuel;
 
-public class K5 extends Car {
-    
-    private int distanceToTravel;
+public class K5 extends AbstractCar {
+    private static final int FUEL_EFFICIENCY = 13;
     private String name;
-
+    
     public K5(int distanceToTravel) {
-        this.distanceToTravel = distanceToTravel;
+        super(distanceToTravel, FUEL_EFFICIENCY);
         this.name = "K5";
     }
 
     @Override
-    double fuelEfficiency() {
-        return 13;
-    }
-
-    @Override
-    double getDistanceToTravel() {
-        return this.distanceToTravel;
-    }
-
-    @Override
-    String getName() {
+    public String getName() {
         return this.name;
     }
 

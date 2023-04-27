@@ -1,26 +1,16 @@
 package fuel;
 
-public class Sonata extends Car{
-    private int distanceToTravel;
+public class Sonata extends AbstractCar{
+    private static final int FUEL_EFFICIENCY = 10;
     private String name;
 
     public Sonata(int distanceToTravel) {
-        this.distanceToTravel = distanceToTravel;
+        super(distanceToTravel, FUEL_EFFICIENCY);
         this.name = "Sonata";
     }
 
     @Override
-    double fuelEfficiency() {
-        return 10;
-    }
-
-    @Override
-    double getDistanceToTravel() {
-        return this.distanceToTravel;
-    }
-
-    @Override
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
