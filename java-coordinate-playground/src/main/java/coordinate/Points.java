@@ -44,6 +44,10 @@ public class Points {
         return Integer.parseInt(value);
     }
 
+    public List<Point> getPoints() {
+        return points;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,5 +59,12 @@ public class Points {
     @Override
     public int hashCode() {
         return Objects.hash(points);
+    }
+
+    public double getDistance() {
+        double dx = points.get(0).getX() - points.get(1).getX() ;
+        double dy = points.get(0).getY() - points.get(1).getY();
+
+        return Math.sqrt( (dx * dx) + (dy * dy));
     }
 }
