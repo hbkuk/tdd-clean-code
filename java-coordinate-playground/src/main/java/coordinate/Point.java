@@ -66,4 +66,12 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
 }
