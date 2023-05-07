@@ -1,10 +1,10 @@
 package coordinate;
 
-public abstract class Figure {
+public interface Figure {
 
-    abstract String getName();
+    String getName();
 
-    abstract int getSize();
+    int getSize();
 
-    abstract double getArea();
+    double getArea();
 }

@@ -1,21 +1,18 @@
 package coordinate;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-public class Triangle extends Figure {
-    private final List<Point> points;
+public class Triangle extends AbstractFigure {
     public final static int TRIANGLE_POINTS_SIZE = 3;
 
     public Triangle(List<Point> points) {
-        this.points = points;
+        super(points);
     }
 
     private double calculatorArea() {
-        Point a = points.get(0);
-        Point b = points.get(1);
-        Point c = points.get(2);
+        Point a = getPoints().get(0);
+        Point b = getPoints().get(1);
+        Point c = getPoints().get(2);
 
         double sideA = a.distance(b);
         double sideB = b.distance(c);
@@ -40,17 +37,17 @@ public class Triangle extends Figure {
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return "Triangle";
     }
 
     @Override
-    int getSize() {
-        return 3;
+    public int getSize() {
+        return TRIANGLE_POINTS_SIZE;
     }
 
     @Override
-    double getArea() {
+    public double getArea() {
         return calculatorArea();
     }
 }

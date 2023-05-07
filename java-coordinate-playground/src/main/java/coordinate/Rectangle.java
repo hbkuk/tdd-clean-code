@@ -5,28 +5,26 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Rectangle extends Figure {
-    private List<Point> points;
-
+public class Rectangle extends AbstractFigure {
     public final static int RECTANGLE_POINTS_SIZE = 4;
 
     public Rectangle(List<Point> points) {
-        this.points = points;
+        super(points);
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return "Rectangle";
     }
 
     @Override
-    int getSize() {
-        return 4;
+    public int getSize() {
+        return RECTANGLE_POINTS_SIZE;
     }
 
     @Override
-    double getArea() {
-        return calculatorArea(points);
+    public double getArea() {
+        return calculatorArea(getPoints());
 
     }
 

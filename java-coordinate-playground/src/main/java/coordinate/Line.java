@@ -2,26 +2,25 @@ package coordinate;
 
 import java.util.List;
 
-public class Line extends Figure {
+public class Line extends AbstractFigure {
     public final static int LINE_POINTS_SIZE = 2;
-    private List<Point> points;
 
     public Line(List<Point> points) {
-        this.points = points;
+        super(points);
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return "Line";
     }
 
     @Override
-    int getSize() {
-        return 2;
+    public int getSize() {
+        return LINE_POINTS_SIZE;
     }
 
     @Override
-    double getArea() {
+    public double getArea() {
         return 0;
     }
 
